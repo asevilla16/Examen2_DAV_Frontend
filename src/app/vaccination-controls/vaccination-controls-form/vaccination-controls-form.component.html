@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="back-button" fxLayoutAlign="start start">
+        <button mat-icon-button color="secondary" routerLink="/pacients">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card>
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>{{title}}</mat-card-title>
+            <mat-card-subtitle>Informacion de vacunacion</mat-card-subtitle>
+
+            <div class="example-button-container" fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="onSubmit()" color="secondary">
+                    Save
+                </button>
+            </div>
+        </mat-card-header>
+        <form [formGroup]="form">
+            <ng-container>
+                <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex="49" appearance="outline">
+                        <mat-label>Paciente</mat-label>
+                        <mat-select formControlName="pacientId">
+                            <mat-option *ngFor="let item of pacients" [value]="item.id">
+                                {{item.name}} {{item.lastName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="49" appearance="outline">
+                        <mat-label>Vacuna</mat-label>
+                        <mat-select formControlName="vaccineId">
+                            <mat-option *ngFor="let item of vaccines" [value]="item.id">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex="39" appearance="outline">
+                        <mat-label>Centro de vacunacion</mat-label>
+                        <mat-select formControlName="vaccinationCenterId">
+                            <mat-option *ngFor="let item of centers" [value]="item.id">
+                                {{item.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="39" appearance="outline">
+                        <mat-label>Fecha de vacunacion</mat-label>
+                        <input formControlName="vaccinationDate" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+
+                    <mat-form-field fxFlex="20" appearance="outline">
+                        <mat-label>Dose</mat-label>
+                        <input type="number" matInput formControlName="dose" placeholder="Placeholder">
+                    </mat-form-field>
+
+                </div>
+            </ng-container>
+
+        </form>
+    </mat-card>
+</div>

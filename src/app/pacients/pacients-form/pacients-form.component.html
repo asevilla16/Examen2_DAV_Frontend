@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="back-button" fxLayoutAlign="start start">
+        <button mat-icon-button color="secondary" routerLink="/pacients">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card>
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>{{title}}</mat-card-title>
+            <mat-card-subtitle>Informacion del paciente</mat-card-subtitle>
+
+            <div class="example-button-container" fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="onSubmit()" color="secondary">
+                    Save
+                </button>
+            </div>
+        </mat-card-header>
+        <form [formGroup]="form">
+            <ng-container>
+                <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex="49" appearance="outline">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput formControlName="name" placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="49" appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput formControlName="lastName" placeholder="Placeholder">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex="33" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="33" appearance="outline">
+                        <mat-label>Phone</mat-label>
+                        <input matInput formControlName="phoneNumber" placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="33" appearance="outline">
+                        <mat-label>Nacionalidad</mat-label>
+                        <input matInput formControlName="nationality" placeholder="Placeholder">
+                    </mat-form-field>
+
+                </div>
+            </ng-container>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="49" appearance="outline">
+                    <mat-label>Numero de identidad</mat-label>
+                    <input matInput formControlName="identity" placeholder="Placeholder">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="49" appearance="outline">
+                    <mat-label>Carnet de afiliacion</mat-label>
+                    <input matInput formControlName="carnet" placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex="33" appearance="outline">
+                    <mat-label>Edad</mat-label>
+                    <input matInput formControlName="age" placeholder="Placeholder">
+                </mat-form-field>
+
+                <mat-form-field fxFlex="33" appearance="outline">
+                    <mat-label>Fecha de nacimiento</mat-label>
+                    <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                <mat-form-field fxFlex="33" appearance="outline">
+                    <mat-label>Sexo</mat-label>
+                    <input matInput formControlName="sex" placeholder="Placeholder">
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field fxFlex appearance="outline">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput formControlName="address" placeholder="Placeholder">
+                </mat-form-field>
+
+            </div>
+
+        </form>
+    </mat-card>
+</div>
